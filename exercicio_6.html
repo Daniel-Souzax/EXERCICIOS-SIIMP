@@ -26,10 +26,10 @@
         let palindromo = inputPalindromo.split("")
         let palindromoCopy = inputPalindromo.split("")
 
-
         if (inputPalindromo.split("").reverse().join("") === inputPalindromo) {
             return divPalindromo.innerHTML = `<span style="color: blue">É um palindromo<span>`
         }
+
         for (let i = 0; i <= palindromo.length; i++) {
             palindromo.splice(i, 1)
 
