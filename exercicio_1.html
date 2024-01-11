@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="text" id="inputWord"> 
+            <button onclick="WordWithoutVowels()">ok</button>
+        </div>
+        <div id="divWordWithoutVowels"> </div>
+    </main>
+</body>
+
+<script>        
+    function WordWithoutVowels() {
+        const word = document.querySelector("#inputWord").value
+        if (word === '') return alert('Insira uma palavra')
+        let divWordWithoutVowels = document.querySelector("#divWordWithoutVowels")
+        
+        const vowels = ['a', 'e', 'i', 'o', 'u']
+        const arrCharacters = word.split("")
+        let arrWithoutVowels = []
+        
+        arrCharacters.forEach(character => {
+            vowels.find(vowel => vowel == character.toLowerCase()) ? '' : arrWithoutVowels.push(character)
+        });
+
+        return divWordWithoutVowels.innerText = arrWithoutVowels.join("")
+    }
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="number" id="inputNumber">
+            <button onclick="listNumbers()">ok</button>
+        </div>
+        <div id="divListOfNumbers"></div>
+    </main>
+</body>
+
+<script>
+
+    function listNumbers() {
+        const inputNumber = Number(document.querySelector("#inputNumber").value)
+
+        if (inputNumber <= 0) return alert('Insira um numero maior que 0')
+        if (inputNumber % 1 > 0) return alert('O numero precisa ser um inteiro')
+
+        const divListOfNumbers = document.querySelector("#divListOfNumbers")
+        let divList = ''
+
+        for (let i = 1; i <= inputNumber; i++) {
+
+            if (i % 5 === 0 && i % 3 === 0) {
+                divList += `<div>HELLO WORLD</div>`
+                continue;
+            }
+
+            if (i % 3 === 0) {
+                divList += `<div>HELLO</div>`
+                continue;
+            }
+
+            if (i % 5 === 0) {
+                divList += `<div>WORLD</div>`
+                continue;
+            }
+
+            divList += `<div>${i}</div>`
+        }
+
+        return divListOfNumbers.innerHTML = divList
+    }
+
+</script>
+
+</html>

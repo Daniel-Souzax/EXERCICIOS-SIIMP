@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="text" id="inputPhrase">
+            <button onclick="biggestWord()">ok</button>
+        </div>
+        <div id="divBiggestWord"></div>
+    </main>
+</body>
+
+<script>
+
+    function biggestWord() {
+        const inputPhrase = document.querySelector("#inputPhrase").value
+        if (inputPhrase === '') return alert('Insira uma frase')
+
+        const divBiggestWord = document.querySelector("#divBiggestWord")
+
+        const arrPhraseWords = removePunctuation(inputPhrase).split(" ")
+
+        const biggestWord = arrPhraseWords.reduce((increment, word) => {
+            return increment.length >= word.length ? increment : word
+        })
+
+        return divBiggestWord.innerText = biggestWord
+    }
+
+    function removePunctuation(str) {
+        return str
+            .replaceAll(",", "")
+            .replaceAll(".", "")
+            .replaceAll(":", "")
+            .replaceAll(";", "")
+            .replaceAll("?", "")
+            .replaceAll("!", "")
+            .replaceAll("(", "")
+            .replaceAll(")", "")
+            .replaceAll("[", "")
+            .replaceAll("]", "")
+    }
+
+</script>
+
+</html>

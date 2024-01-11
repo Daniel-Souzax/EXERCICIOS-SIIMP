@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="number" id="inputFirstNumber">
+            <input type="number" id="inputSecondNumber">
+            <button onclick="sumNumbers()">ok</button>
+        </div>
+        <div id="divSumOfNumbers"></div>
+    </main>
+</body>
+
+<script>
+
+    function sumNumbers() {
+        let inputFirstNumber = Number(document.querySelector("#inputFirstNumber").value)
+        let inputSecondNumber = Number(document.querySelector("#inputSecondNumber").value)
+        const divSumOfNumbers = document.querySelector("#divSumOfNumbers")
+
+        if (!inputFirstNumber || !inputSecondNumber) return alert('Insira os numeros')
+        if (inputSecondNumber < inputFirstNumber) return divSumOfNumbers.innerText = `0`
+        if (inputFirstNumber === inputSecondNumber) return divSumOfNumbers.innerText = `${inputFirstNumber}`
+
+        let resultOfSum = 0;
+
+        for (let i = inputFirstNumber; i <= inputSecondNumber; i++) {
+            resultOfSum += i;
+        }
+
+        return divSumOfNumbers.innerText = `${resultOfSum}`;
+    }
+
+</script>
+
+</html>

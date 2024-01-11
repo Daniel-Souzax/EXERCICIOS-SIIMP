@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="number" id="inputNumber">
+            <button onclick="sumAllNumbers()">ok</button>
+        </div>
+        <div id="divSumOfAllNumbers"></div>
+    </main>
+</body>
+
+<script>
+
+    function sumAllNumbers() {
+        const inputNumber = document.querySelector("#inputNumber").value
+        if (inputNumber <= 0) return alert('Insira um numero maior que 0')
+
+        const arrNumbers = inputNumber.split("")
+        if (arrNumbers.find(element => element === '.')) return alert('O numero deve ser inteiro')
+
+        const divSumOfAllNumbers = document.querySelector("#divSumOfAllNumbers")
+
+        const sumOfNumbers = arrNumbers.reduce((increment, number) => {
+            return Number(increment) + Number(number)
+        })
+
+        return divSumOfAllNumbers.innerText = sumOfNumbers
+    }
+
+</script>
+
+</html>

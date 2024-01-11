@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+
+<body>
+    <main>
+        <div>
+            <input type="text" id="inputPalindromo">
+            <button onclick="verifyPalindromo()">ok</button>
+        </div>
+        <div id="divPalindromo"></div>
+    </main>
+</body>
+
+<script>
+
+    function verifyPalindromo() {
+        let inputPalindromo = removeAccentsAndPunctuation(document.querySelector("#inputPalindromo").value).toLowerCase()
+        if (inputPalindromo === '') return alert('Insira um texto')
+        const divPalindromo = document.querySelector("#divPalindromo")
+
+        if (inputPalindromo.split("").reverse().join("") === inputPalindromo) {
+            return divPalindromo.innerHTML = `<span style="color: blue">É um palíndromo<span>`
+        }
+        
+        return divPalindromo.innerHTML = `<span style="color: red">Não é um palíndromo<span>`
+    }
+
+    function removeAccentsAndPunctuation(str) {
+        return str
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replaceAll(",", "")
+            .replaceAll(".", "")
+            .replaceAll(":", "")
+            .replaceAll(";", "")
+            .replaceAll("?", "")
+            .replaceAll("!", "")
+            .replaceAll("(", "")
+            .replaceAll(")", "")
+            .replaceAll("[", "")
+            .replaceAll("]", "")
+            .replaceAll("-", "")
+            .replaceAll(" ", "")
+    }
+
+</script>
+
+</html>
